@@ -1,0 +1,15 @@
+%div
+  %h2
+    #{birthday} #{birthday.state}
+  %div
+    %h3
+      Budget
+    %p
+      - birthday.pledges.each do |pledge|
+        %span
+          #{pledge.amount} by #{pledge.user}
+      %hr
+      %h4
+        Total: #{birthday.budget}
+%div
+  = render "pledge"

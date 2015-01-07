@@ -38,9 +38,16 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'devise'
+gem 'simple_form'
+gem 'decent_exposure'
+gem 'haml'
+
+gem 'gift_votes', path: '~/Code/gift_votes'
+
 group :development do
+  gem 'awesome_print'
   gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'web_console'
 end

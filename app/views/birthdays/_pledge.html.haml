@@ -1,0 +1,10 @@
+%div
+  - if pledge
+    Your pledge is #{pledge.amount}
+    = simple_form_for pledge, url: birthday_pledge_path(birthday, pledge) do |f|
+      = f.input :amount
+      = f.submit
+  - else
+    = simple_form_for Pledge.new, url: birthday_pledges_path(birthday) do |f|
+      = f.input :amount
+      = f.submit
