@@ -4,10 +4,6 @@ class BirthdaysController < ApplicationController
   expose(:birthday, attributes: :birthday_params)
   expose(:pledge) { current_user.pledge_for_birthday(birthday) }
 
-  def show
-
-  end
-
   def create
     if birthday.save
       redirect_to birthday

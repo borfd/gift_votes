@@ -4,6 +4,7 @@ class Birthday < ActiveRecord::Base
 
   has_many :pledges
   has_many :gift_ideas
+  has_many :votes
 
   def to_s
     "#{person} #{day}"
@@ -13,6 +14,7 @@ class Birthday < ActiveRecord::Base
     @_gift_votes ||= GiftVotes::Plan.new.tap do |plan|
       pledges.pluck(:amount).map {|a| plan.pledge(a) }
       gift_ideas.map {|idea| plan.add_gift_idea(idea)}
+      votes.map {|vote| plan.vote(vote.gift_idea) }
     end
   end
 
@@ -22,5 +24,9 @@ class Birthday < ActiveRecord::Base
 
   def budget
     plan.budget.amount
+  end
+
+  def scores
+    plan.scores
   end
 end

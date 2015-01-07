@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   resources :birthdays do
     resources :pledges
-    resources :gift_ideas
+    resources :gift_ideas do
+      resources :votes
+    end
   end
 
   # Example of regular route:

@@ -1,0 +1,7 @@
+- if !current_user.vote_for_gift_idea(idea)
+  - if !current_user.has_voted?(birthday)
+    = simple_form_for Vote.new, url: birthday_gift_idea_votes_path(birthday, idea) do |f|
+      = f.submit
+- else current_user.vote_for_gift_idea(idea)
+  %p
+    = link_to 'remove vote', birthday_gift_idea_vote_path(birthday, idea, current_user.vote_for_gift_idea(idea)), method: :delete

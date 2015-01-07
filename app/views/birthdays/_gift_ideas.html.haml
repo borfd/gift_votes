@@ -1,6 +1,7 @@
 %div
-  - birthday.gift_ideas.each do |idea|
-    #{link_to idea.link} for #{idea.price}
+  - birthday.scores.each do |idea, votes|
+    #{link_to idea.link} for #{idea.price} [#{votes} votes]
+    = render 'votes', {idea: idea}
   = simple_form_for GiftIdea.new, url: birthday_gift_ideas_path(birthday) do |f|
     = f.input :link
     = f.input :price
