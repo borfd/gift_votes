@@ -12,7 +12,7 @@ class PledgesController < ApplicationController
   end
 
   def update
-    pledge.save!
+    pledge.save
 
     redirect_to birthday
   end
