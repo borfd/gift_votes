@@ -46,7 +46,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'refills'
 
-gem 'gift_votes', path: './lib/gift_votes'
+gem 'gift_votes', path: "#{File.dirname(File.expand_path(__FILE__))}/vendor/gems"
 
 group :development do
   gem 'awesome_print'
