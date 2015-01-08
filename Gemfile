@@ -37,6 +37,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'puma'
+
 gem 'devise'
 gem 'simple_form'
 gem 'decent_exposure'
