@@ -1,4 +1,14 @@
-= simple_form_for birthday do |f|
-  = f.input :day
-  = f.input :person
-  = f.submit
+%div.form-container
+  %h2 Start birthday planning
+  = simple_form_for birthday do |f|
+    %div.left-column.form_field
+      = f.label :day
+    %div.right-column.form_field
+      = f.date_field :day
+    %div.left-column.form_field
+      = f.label :person
+    %div.right-column.form_field
+      = f.text_field :person
+    %div.left-column.form_field
+    %div.submit.form_field
+      = f.submit 'Start', class: 'pure-button'

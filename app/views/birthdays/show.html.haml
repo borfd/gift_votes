@@ -8,6 +8,15 @@
       Winning gift idea not within budget.
     - else
       No gift ideas.
-  = render "grid_items"
+  %ul.accordion-tabs-minimal
+    %li.tab-header-and-content
+      %a.tab-link.is-active{:href => "#"} Gift Ideas
+      .tab-content
+        = render "grid_items"
+    %li.tab-header-and-content
+      %a.tab-link{:href => "#"} Budget
+      .tab-content
+        = render "budget"
 
-  = render "budget"
+
+
