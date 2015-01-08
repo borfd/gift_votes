@@ -1,5 +1,5 @@
 PATH
-  remote: ~/Code/gift_votes
+  remote: ./lib/gift_votes
   specs:
     gift_votes (0.0.1)
 
