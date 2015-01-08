@@ -1,8 +1,27 @@
+%h3
+  Gift Ideas
 %div
-  - birthday.scores.each do |idea, votes|
-    #{link_to idea.link} for #{idea.price} [#{votes} votes]
-    = render 'votes', {idea: idea}
-  = simple_form_for GiftIdea.new, url: birthday_gift_ideas_path(birthday) do |f|
-    = f.input :link
-    = f.input :price
-    = f.submit
+  %table.table-minimal
+    %thead
+      %tr
+        %th Link
+        %th Price
+        %th Votes
+        %th
+    %tbody
+      - birthday.scores.each do |idea, votes|
+        %tr
+          %td #{link_to idea.link}
+          %td #{idea.price}
+          %td #{votes} votes
+          %td
+            = render 'votes', {idea: idea}
+      %tr
+        = simple_form_for GiftIdea.new, url: birthday_gift_ideas_path(birthday), html: {class: 'pure-form'} do |f|
+          %td
+            = f.text_field :link, placeholder: "Gift Idea Link"
+          %td
+            = f.text_field :price, placeholder: "Price"
+          %td
+          %td
+            = f.submit 'Add', class: 'pure-button'

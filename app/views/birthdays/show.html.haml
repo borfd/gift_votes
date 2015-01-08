@@ -1,6 +1,8 @@
 %div
-  %h2
-    #{birthday} #{birthday.state}
+  %h1
+    #{birthday}
+  %p
+    #{birthday.state}
+  = render "grid_items"
+
   = render "budget"
-  = render "gift_ideas"
-  = render "pledge"
