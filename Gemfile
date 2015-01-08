@@ -46,7 +46,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'refills'
 
-gem 'gift_votes', path: '~/Code/gift_votes'
+gem 'gift_votes', path: './lib/gift_votes'
 
 group :development do
   gem 'awesome_print'

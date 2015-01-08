@@ -4,16 +4,16 @@
   %table.table-minimal
     %thead
       %tr
-        %th Link
-        %th Price
         %th Votes
+        %th Price
+        %th Link
         %th
     %tbody
       - birthday.scores.each do |idea, votes|
         %tr
-          %td #{link_to idea.link}
+          %td #{votes}
           %td #{idea.price}
-          %td #{votes} votes
+          %td #{link_to idea.link, idea.link, target: 'blank'}
           %td
             = render 'votes', {idea: idea}
       %tr
