@@ -8,9 +8,10 @@
         %th Amount
         %th
     %tbody
+      - current_user_pledge = current_user.pledge_for_birthday(birthday)
       - birthday.pledges.each do |pledge|
         %tr
-          - if pledge == current_user.pledge_for_birthday(birthday)
+          - if pledge == current_user_pledge
             = simple_form_for pledge, url: birthday_pledge_path(birthday, pledge) do |f|
               %td
                 = current_user
@@ -22,6 +23,13 @@
             %td #{pledge.user}
             %td #{pledge.amount}
             %td
+      - unless current_user_pledge
+        %tr
+          = simple_form_for Pledge.new, url: birthday_pledges_path(birthday) do |f|
+            %td
+              = f.text_field :amount, placeholder: "Amount"
+            %td
+              = f.submit 'Pledge', class: 'pure-button'
       %tr
         %td Total:
         %td #{birthday.budget}

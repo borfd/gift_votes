@@ -42,6 +42,9 @@ gem 'devise'
 gem 'simple_form'
 gem 'decent_exposure'
 gem 'haml'
+gem 'bourbon'
+gem 'neat'
+gem 'refills'
 
 gem 'gift_votes', path: '~/Code/gift_votes'
 
