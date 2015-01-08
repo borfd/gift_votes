@@ -14,9 +14,8 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    vote.destroy
-
     if current_user == vote.user
+      vote.destroy
     end
     redirect_to birthday
   end

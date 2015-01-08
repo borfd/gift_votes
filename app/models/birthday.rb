@@ -11,10 +11,10 @@ class Birthday < ActiveRecord::Base
   end
 
   def plan
-    @_gift_votes ||= GiftVotes::Plan.new.tap do |plan|
-      pledges.pluck(:amount).map {|a| plan.pledge(a) }
-      gift_ideas.map {|idea| plan.add_gift_idea(idea)}
-      votes.map {|vote| plan.vote(vote.gift_idea) }
+    @_plan ||= GiftVotes::Plan.new.tap do |plan|
+      pledges.pluck(:amount).map {|a|    plan.pledge(a)            }
+      gift_ideas            .map {|idea| plan.add_gift_idea(idea)  }
+      votes                 .map {|vote| plan.vote(vote.gift_idea) }
     end
   end
 
