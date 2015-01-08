@@ -2,7 +2,12 @@
   %h1
     #{birthday}
   %p
-    #{birthday.state}
+    - if birthday.state == :success
+      Gift within budget found.
+    - elsif birthday.gift_ideas.any?
+      Winning gift idea not within budget.
+    - else
+      No gift ideas.
   = render "grid_items"
 
   = render "budget"
